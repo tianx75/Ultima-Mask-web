@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Ultimate Beauty | Ultima & Observ</title>
+
+  <!-- SEO / Sharing -->
+  <meta name="description" content="Prémium esztétikai klinika Budapesten: ULTIMA LED Beauty Mask és Observ 520x bőrdiagnosztika. Tudományos alapú kezelési tervek és otthoni protokollok." />
+  <meta property="og:title" content="The Ultimate Beauty | Ultima & Observ" />
+  <meta property="og:description" content="ULTIMA LED Beauty Mask és Observ 520x — orvosi precizitás, prémium élmény." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black: #050505;
+      --navy: #0a0d12;
+      --dark-card: #11141a;
+      --gold: #c5a059;
+      --gold-light: #e6c991;
+      --cyan: #00e5ff;
+      --white: #ffffff;
+      --gray: #9ca3af;
+      --gray-dark: #374151;
+      --observ-blue: #0088cc;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* Anchor offset for fixed bars (tab 50 + nav ~70) */
+      --anchor-offset: 130px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Accessibility helpers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* ═══ TERMÉKVÁLASZTÓ FÜLEK ═══ */
+    .product-switcher {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: #000;
+      z-index: 1100;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--gray);
+      padding: 0 22px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: var(--transition);
+      position: relative;
+      height: 50px;
+    }
+
+    .tab-btn.active { color: var(--gold); }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 18%;
+      right: 18%;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .page-content { display: none; margin-top: 50px; }
+    .page-content.active { display: block; }
+
+    /* ═══ KÖZÖS STÍLUSOK ═══ */
+    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--white) 30%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+    section { padding: 100px 0; position: relative; scroll-margin-top: var(--anchor-offset); }
+
+    .section-tag {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .btn-gold { background: var(--gold); color: var(--black); }
+    .btn-gold:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--white);
+    }
+    .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.32); transform: translateY(-1px); }
+
+    /* ═══ NAVIGÁCIÓ ═══ */
+    .nav {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(14px);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta { background: var(--gold); color: var(--black); }
+
+    /* Mobile nav */
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .menu-btn:hover { background: rgba(255,255,255,0.09); }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      z-index: 1200;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .drawer {
+      position: fixed;
+      top: 50px;
+      right: 0;
+      width: min(420px, 92vw);
+      height: calc(100vh - 50px);
+      background: rgba(10,13,18,0.98);
+      border-left: 1px solid rgba(255,255,255,0.08);
+      z-index: 1250;
+      transform: translateX(110%);
+      transition: var(--transition);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    body.drawer-open .drawer-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.drawer-open .drawer { transform: translateX(0); }
+
+    .drawer-header { display: flex; align-items: center; justify-content: space-between; }
+    .drawer-title { font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); }
+
+    .drawer-links { list-style: none; display: grid; gap: 14px; margin-top: 8px; }
+    .drawer-links a {
+      display: block;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      font-size: 0.9rem;
+    }
+
+    .drawer-links a:hover { background: rgba(255,255,255,0.08); }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      height: calc(100vh - 50px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px; /* ensures content below nav */
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      width: 820px;
+      height: 820px;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+      top: -220px;
+      right: -220px;
+      z-index: 0;
+      filter: blur(80px);
+    }
+
+    .hero-content { max-width: 820px; position: relative; z-index: 2; }
+
+    .hero-tag {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 640px;
+      margin-bottom: 28px;
+      font-weight: 330;
+    }
+
+    .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-visual {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .mask-placeholder { width: 100%; max-width: 520px; position: relative; animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-26px); } }
+
+    /* ═══ MASK SPECIFIKUS ═══ */
+    .product-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 90px;
+      align-items: center;
+    }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+    .stat-card {
+      background: var(--dark-card);
+      padding: 34px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stat-value { font-family: 'Playfair Display', serif; font-size: 2.35rem; color: var(--gold); display: block; margin-bottom: 8px; }
+    .stat-label { font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+
+    .wavelength-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 30px; }
+
+    .wave-card {
+      background: var(--dark-card);
+      padding: 34px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .wave-nm { font-size: 2.7rem; font-weight: 900; font-family: 'Playfair Display', serif; margin-bottom: 6px; color: var(--accent-color); }
+
+    .steps-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 34px; }
+
+    .step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .step-num {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(197,160,89,0.12);
+      border: 1px solid rgba(197,160,89,0.22);
+      color: var(--gold);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    /* ═══ OBSERV SPECIFIKUS ═══ */
+    .observ-accent { color: var(--observ-blue); }
+
+    .feature-badge {
+      background: var(--observ-blue);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; margin-top: 36px; }
+
+    .mode-card {
+      background: var(--dark-card);
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
+
+    .mode-card:hover { border-color: rgba(0,136,204,0.7); transform: translateY(-4px); }
+
+    .mode-num { color: var(--observ-blue); font-weight: 950; font-size: 0.78rem; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+    .mode-title { font-size: 1.35rem; color: var(--white); margin-bottom: 12px; }
+    .mode-desc { font-size: 0.96rem; color: var(--gray); line-height: 1.7; }
+
+    .mode-highlight {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.86rem;
+      margin-top: 14px;
+      display: block;
+      border-left: 2px solid var(--gold);
+      padding-left: 10px;
+    }
+
+    .analysis-display { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; margin-top: 80px; }
+
+    .grey-tech-card {
+      background: #1a1a1a;
+      padding: 18px;
+      border-radius: 22px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 280px;
+    }
+
+    .media-cover {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 55%),
+                  linear-gradient(135deg, rgba(0,136,204,0.10), rgba(197,160,89,0.08));
+      aspect-ratio: 16 / 11;
+      position: relative;
+    }
+
+    .media-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(1);
+      opacity: 0.95;
+    }
+
+    .media-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 18px;
+      pointer-events: none;
+    }
+
+    .media-fallback strong {
+      display: block;
+      font-weight: 950;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .comparison-label { font-size: 0.72rem; color: var(--gray); text-transform: uppercase; display: block; margin-top: 10px; text-align: center; letter-spacing: 1px; }
+
+    .fps-section {
+      background: var(--navy);
+      border-radius: 30px;
+      padding: 70px;
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ═══ CONTACT / BOOKING ═══ */
+    .contact-shell {
+      background: linear-gradient(135deg, rgba(17,20,26,1) 0%, rgba(10,13,18,1) 100%);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 30px;
+      padding: 64px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-glow {
+      position: absolute;
+      width: 740px;
+      height: 740px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(197,160,89,0.16) 0%, transparent 70%);
+      right: -320px;
+      top: -320px;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+
+    .jotform-container {
+      position: relative;
+      z-index: 2;
+      max-width: 100%;
+    }
+
+    .contact-intro {
+      margin-bottom: 30px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .contact-line { color: var(--gray); font-size: 0.98rem; }
+
+    .mini-proof {
+      margin-top: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      gap: 10px;
+    }
+
+    .proof-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 14px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+    }
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 1400;
+      padding: 10px;
+      border-radius: 18px;
+      background: rgba(10,13,18,0.85);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      gap: 10px;
+    }
+
+    .sticky-cta .btn { flex: 1; }
+
+    /* Footer */
+    footer { padding: 80px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-grid h4 { margin-bottom: 10px; color: rgba(255,255,255,0.92); }
+    .footer-grid ul { list-style: none; display: grid; gap: 8px; }
+    .footer-grid a { color: var(--gray); text-decoration: none; }
+    .footer-grid a:hover { color: var(--white); }
+
+    .footer-bottom { margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); color: var(--gray); font-size: 0.95rem; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .product-info-grid, .analysis-display, .fps-section { grid-template-columns: 1fr; text-align: center; }
+      .hero-visual { display: none; }
+      .hero-content { max-width: 100%; text-align: center; }
+      .hero-cta-row { justify-content: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .contact-shell { padding: 40px; text-align: left; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+      .container, .nav-container { padding: 0 20px; }
+      section { padding: 80px 0; }
+      .sticky-cta { display: flex; }
+    }
+
+    @media (max-width: 520px) {
+      .tab-btn { padding: 0 14px; font-size: 0.72rem; }
+      .contact-shell { padding: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="sr-only" href="#main">Ugrás a tartalomra</a>
+
+  <!-- TERMÉKVÁLASZTÓ -->
+  <div class="product-switcher" role="tablist" aria-label="Termékválasztó">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="mask-page" id="tab-mask" onclick="switchTab('mask')">LED Beauty Mask</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="observ-page" id="tab-observ" onclick="switchTab('observ')">Observ 520x</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="partner-page" id="tab-partner" onclick="switchTab('partner')">Partner</button>
+  </div>
+
+  <!-- DRAWER (Mobile menu) -->
+  <div class="drawer-backdrop" onclick="closeDrawer()" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Mobil menü" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-title" id="drawerTitle">Menü</div>
+      <button class="menu-btn" onclick="closeDrawer()" aria-label="Menü bezárása">✕</button>
+    </div>
+    <ul class="drawer-links" id="drawerLinks">
+      <!-- JS fills links based on active tab -->
+    </ul>
+    <div style="margin-top:auto; display:grid; gap:10px;">
+      <a class="btn btn-gold" href="#contact" onclick="closeDrawer();">Kapcsolat / Foglalás</a>
+      <a class="btn btn-ghost" href="#faq" onclick="closeDrawer();">GYIK</a>
+    </div>
+  </aside>
+
+  <!-- ═══ LED BEAUTY MASK OLDAL ═══ -->
+  <div id="mask-page" class="page-content active" role="tabpanel" aria-labelledby="tab-mask">
+    <nav class="nav" id="mainNavMask" aria-label="Mask navigáció">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="ULTIMA kezdő">ULTIMA</a>
+        <ul class="nav-links">
+          <li><a href="#about">A Maszk</a></li>
+          <li><a href="#technology">Technológia</a></li>
+          <li><a href="#how-to">Használat</a></li>
+          <li><a href="#contact">Kapcsolat</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="menu-btn" onclick="openDrawer('mask')" aria-label="Menü megnyitása">☰</button>
+          <a href="#contact" class="btn btn-gold nav-cta">Vásárlás / Tanácsadás</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main" class="container">
+      <!-- HERO -->
+      <section class="hero" aria-label="Mask hero">
+        <div class="hero-bg-glow" aria-hidden="true"></div>
+        <div class="hero-content">
+          <span class="hero-tag" data-reveal>A Bőrápolás Jövője</span>
+          <h1 class="hero-title serif" data-reveal>Visszatérő ragyogás,<br /><span class="text-gradient">orvosi precizitás.</span></h1>
+          <p class="hero-description" data-reveal>
+            Az Ultima LED Beauty Mask a klinikai fényterápia erejét hozza el otthonába. Négy tudományosan validált hullámhossz egyetlen, pehelykönnyű eszközben.
+          </p>
+          <div class="hero-cta-row" data-reveal>
+            <a href="#technology" class="btn btn-gold">Technológia</a>
+            <a href="#how-to" class="btn btn-ghost">Használat</a>
+          </div>
+
+          <!-- NYITÁSI AKCIÓ (Mask) -->
+          <div data-reveal style="margin-top:18px; max-width: 720px;">
+            <div style="background: rgba(197,160,89,0.10); border: 1px solid rgba(197,160,89,0.22); padding: 14px 16px; border-radius: 16px; display:flex; gap:12px; align-items:flex-start;">
+              <div style="min-width:38px; height:38px; border-radius: 12px; display:grid; place-items:center; background: rgba(197,160,89,0.18); border: 1px solid rgba(197,160,89,0.22); font-weight: 950; color: var(--gold);">★</div>
+              <div>
+                <div style="font-weight: 950; letter-spacing: 1px; text-transform: uppercase;">Nyitási akció</div>
+                <div style="color: rgba(255,255,255,0.82);">Ultima Mask vásárlás mellé <strong>ingyenes Observ bőrvizsgálat</strong> (limitált helyek).</div>
+                <div style="margin-top:10px; display:flex; gap:10px; flex-wrap: wrap;">
+                  <a class="btn btn-gold" href="#contact">Kérem az akciót</a>
+                  <a class="btn btn-ghost" href="#observ-intro" onclick="switchTab('observ')">Megnézem az Observot</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mask-placeholder">
+            <img
+              src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=900"
+              alt="Ultima LED maszk"
+              width="900"
+              height="600"
+              loading="eager"
+              decoding="async"
+              style="width: 100%; filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.18)); border-radius: 18px;"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="product-info-grid">
+          <div class="product-text">
+            <span class="section-tag">Kiemelkedő mérnöki munka</span>
+            <h2 class="section-title serif">Könnyebb, mint egy selyemkendő.</h2>
+            <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 26px;">
+              Az Ultima tervezésekor a legfontosabb szempont a kényelem volt. A prémium orvosi szilikon váz tökéletesen illeszkedik az arc kontúrjaihoz — így a kezelés valóban pihentető.
+            </p>
+            <div class="stats-grid" aria-label="Fő specifikációk">
+              <div class="stat-card"><span class="stat-value">93g</span><span class="stat-label">Súly</span></div>
+              <div class="stat-card"><span class="stat-value">IP67</span><span class="stat-label">Vízállóság</span></div>
+            </div>
+          </div>
+          <div class="product-visual">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200"
+              alt="Klinikai környezet"
+              width="1200"
+              height="800"
+              loading="lazy"
+              decoding="async"
+              style="width: 100%; border-radius: 18px; filter: grayscale(1) contrast(1.1); border: 1px solid rgba(255,255,255,0.06);"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- TECHNOLOGY -->
+      <section id="technology">
+        <span class="section-tag">Technológia</span>
+        <h2 class="section-title serif">4 validált hullámhossz — egyetlen rutinban.</h2>
+        <p style="color: var(--gray); max-width: 900px; font-size: 1.05rem;">
+          A fényterápia lényege, hogy célzott hullámhosszak kontrollált módon támogatják a bőr komfortját, tónusát és textúráját. A protokollt mindig a bőr állapotához igazítjuk.
+        </p>
+
+        <div class="wavelength-grid" style="margin-top: 26px;">
+          <div class="wave-card" style="--accent-color: var(--cyan);">
+            <div class="wave-nm">Blue</div>
+            <p style="color: var(--gray);">Különösen hasznos lehet a problémás bőr támogatásában, a felszíni komfort javításában.</p>
+          </div>
+          <div class="wave-card" style="--accent-color: #ff4d4d;">
+            <div class="wave-nm">Red</div>
+            <p style="color: var(--gray);">A bőr megjelenésének általános javításában, tónus és textúra támogatásában gyakran használt tartomány.</p>
+          </div>
+          <div class="wave-card" style="--accent-color: #ff7ad9;">
+            <div class="wave-nm">Near-IR</div>
+            <p style="color: var(--gray);">Mélyebb rétegek komfortját támogató tartomány; különösen népszerű anti-aging rutinokban.</p>
+          </div>
+          <div class="wave-card" style="--accent-color: var(--gold);">
+            <div class="wave-nm">Combo</div>
+            <p style="color: var(--gray);">Szakértői javaslat alapján kombinált programok — a cél az egyenletesebb bőrkép és a jobb tolerancia.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO -->
+      <section id="how-to">
+        <span class="section-tag">Használat</span>
+        <h2 class="section-title serif">Otthoni protokoll — tisztán, egyszerűen, következetesen.</h2>
+        <p style="color: var(--gray); max-width: 900px; font-size: 1.05rem;">
+          A legjobb eredményt az adja, ha rövid, fenntartható rutint építesz. A maszk nem „csodagép" — egy precíz eszköz, ami következetességgel hozza a látványt.
+        </p>
+
+        <div class="steps-container" aria-label="Használati lépések">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3 class="serif" style="margin-bottom: 10px;">Előkészítés</h3>
+            <p style="color: var(--gray);">Tisztítás + száraz bőr. Ha használsz szérumot, válassz egyszerű, irritációmentes formulát.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3 class="serif" style="margin-bottom: 10px;">Kezelés</h3>
+            <p style="color: var(--gray);">Válassz programot a célod szerint. Az időt tartsd röviden, inkább gyakrabban, mint túl sokáig.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3 class="serif" style="margin-bottom: 10px;">Lezárás</h3>
+            <p style="color: var(--gray);">Hidratáló + fényvédelem nappal. Fotózd a haladást 2–4 hetente az objektív összehasonlításhoz.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 26px; display:flex; gap:12px; flex-wrap: wrap;">
+          <a class="btn btn-gold" href="#contact">Konzultáció / vásárlás</a>
+          <a class="btn btn-ghost" href="#faq">GYIK</a>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <span class="section-tag">GYIK</span>
+        <h2 class="section-title serif">A leggyakoribb kérdések.</h2>
+        <div class="mode-grid" style="margin-top: 22px;">
+          <div class="mode-card">
+            <h3 class="mode-title serif">Mikor látszik az eredmény?</h3>
+            <p class="mode-desc">A bőr megújulási ciklusa miatt jellemzően 2–4 hét után lesz igazán összehasonlítható a változás. A kulcs: rendszeresség.</p>
+            <span class="mode-highlight">Tipp: fotó ugyanabban a fényben.</span>
+          </div>
+          <div class="mode-card">
+            <h3 class="mode-title serif">Mivel kombinálható?</h3>
+            <p class="mode-desc">Egyszerű, irritációmentes rutinokkal a legbiztonságosabb: hidratálás + fényvédelem. Erős aktívoknál szakértői javaslat ajánlott.</p>
+            <span class="mode-highlight">Kevesebb néha több.</span>
+          </div>
+          <div class="mode-card">
+            <h3 class="mode-title serif">Kinek nem ajánlott?</h3>
+            <p class="mode-desc">Bizonyos gyógyszerek/fényérzékenység esetén, illetve speciális bőrállapotoknál előzetes konzultáció szükséges.</p>
+            <span class="mode-highlight">Kérdezz rá nálunk.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" aria-label="Kapcsolat / Foglalás">
+        <div class="contact-shell">
+          <div class="contact-glow" aria-hidden="true"></div>
+
+          <div class="jotform-container">
+            <div class="contact-intro">
+              <span class="section-tag">Kapcsolat</span>
+              <h2 class="section-title serif">Időpont, tanácsadás, vásárlás — egy helyen.</h2>
+              <p style="color: var(--gray); max-width: 720px; margin-bottom: 20px;">
+                Töltsd ki az űrlapot és 1 munkanapon belül válaszolunk. Ha Observ vizsgálatot szeretnél, jelöld be a megfelelő opciót. Ha maszk érdekel, válaszd az Ultima Mask opciót.
+              </p>
+            </div>
+
+            <!-- JotForm beágyazás -->
+            <div id="jotformWrap" style="position: relative;">
+              <iframe
+                id="JotFormIFrame-260426493778065"
+                title="Gyors jelentkezés prémium Observ 520x vizsgálatra vagy Ultima Mask-ra"
+                allowtransparency="true"
+                allow="geolocation; microphone; camera; fullscreen; payment"
+                src="https://form.jotform.com/260426493778065"
+                frameborder="0"
+                style="min-width:100%;max-width:100%;height:539px;border:none; border-radius: 16px;"
+                scrolling="no"
+                onload="document.documentElement.classList.add('jf-loaded'); document.getElementById('jfFallback').style.display='none';"
+              ></iframe>
+
+              <!-- Preview fallback (ha a vászon blokkolja a hálózatot) -->
+              <div id="jfFallback" style="position:absolute; inset:0; display:none; align-items:center; justify-content:center; text-align:center; padding: 18px; border-radius:16px; background: rgba(10,13,18,0.92); border: 1px solid rgba(255,255,255,0.10);">
+                <div style="max-width: 520px;">
+                  <div style="font-weight: 950; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;">Űrlap előnézeti korlátozás</div>
+                  <div style="color: rgba(255,255,255,0.78); margin-bottom: 14px;">A Canvas/preview néha nem tartja meg a hálózati engedélyt, ezért az iframe visszadobhat. A weboldalon/éles környezetben működni fog.</div>
+                  <a class="btn btn-gold" href="https://form.jotform.com/260426493778065" target="_blank" rel="noopener">Űrlap megnyitása új lapon</a>
+                </div>
+              </div>
+            </div>
+
+            <aside class="contact-card" aria-label="Elérhetőségek">
+              <div>
+                <div style="font-weight: 950; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.9);">The Ultimate Beauty</div>
+                <div class="contact-line">Budapest</div>
+              </div>
+              <div class="contact-line"><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#2841464e47685c404d5d445c4145495c4d4a4d495d5c51064b4745" style="color: var(--white); text-decoration:none;"><span class="__cf_email__" data-cfemail="335a5d555c73475b56465f475a5e52475651565246474a1d505c5e">[email&#160;protected]</span></a></div>
+              <div class="contact-line"><strong>Telefon:</strong> <a href="tel:+3617903017" style="color: var(--white); text-decoration:none;">+36 1 790 3017</a></div>
+              <div class="contact-line"><strong>Nyitvatartás:</strong> Egyeztetés alapján</div>
+
+              <div class="mini-proof" aria-label="Bizalmi elemek">
+                <div class="proof-item">✓ Személyre szabott kezelési terv</div>
+                <div class="proof-item">✓ Objektív bőrdiagnosztika (Observ)</div>
+                <div class="proof-item">✓ Fenntartható otthoni rutin</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ═══ OBSERV 520X OLDAL ═══ -->
+  <div id="observ-page" class="page-content" role="tabpanel" aria-labelledby="tab-observ">
+    <nav class="nav" id="mainNavObserv" aria-label="Observ navigáció">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="OBSERV kezdő">OBSERV</a>
+        <ul class="nav-links">
+          <li><a href="#observ-intro">A Rendszer</a></li>
+          <li><a href="#observ-modes">Fénymódok</a></li>
+          <li><a href="#observ-tech">Analízis</a></li>
+          <li><a href="#contact">Kapcsolat</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="menu-btn" onclick="openDrawer('observ')" aria-label="Menü megnyitása">☰</button>
+          <a href="#contact" class="btn" style="background: var(--observ-blue); color: white;">Időpontot kérek</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero" id="observ-intro" aria-label="Observ hero">
+        <div class="hero-bg-glow" style="background: radial-gradient(circle, rgba(0, 136, 204, 0.12) 0%, transparent 70%);" aria-hidden="true"></div>
+        <div class="hero-content">
+          <span class="hero-tag" style="color: var(--observ-blue);" data-reveal>Szakértői Bőrdiagnosztika</span>
+          <h1 class="hero-title serif" data-reveal>Observ 520x<br /><span class="observ-accent">Lássa meg a láthatatlant.</span></h1>
+          <p class="hero-description" data-reveal>
+            Modern bőrdiagnosztikai rendszer, amely speciális LED-technológiával és fényszűrőkkel tárja fel a bőr állapotát — és segít mérhető, követhető kezelési tervet készíteni.
+          </p>
+          <div class="hero-cta-row" data-reveal>
+            <a href="#observ-modes" class="btn" style="background: var(--observ-blue); color: white;">Fénymódok</a>
+            <a href="#contact" class="btn btn-ghost">Időpont</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mask-placeholder" style="animation: none;">
+            <img
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=900"
+              alt="Observ 520x készülék"
+              width="900"
+              height="900"
+              loading="eager"
+              decoding="async"
+              style="border-radius: 50%; border: 14px solid var(--dark-card); width: 100%;"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 FÉNYMÓD -->
+      <section id="observ-modes">
+        <span class="section-tag">Technológia</span>
+        <h2 class="section-title serif">6 Tudományos Megvilágítási Mód</h2>
+        <p style="color: var(--gray); max-width: 900px;">
+          A rendszer különböző megvilágítási és szűrési módokkal segít feltérképezni a bőr felszíni és mélyebb jellegzetességeit. Így a kezelési terv nem érzésre, hanem adatokra támaszkodik.
+        </p>
+
+        <div class="mode-grid">
+          <div class="mode-card">
+            <span class="mode-num">MODE 01</span>
+            <h3 class="mode-title serif">Nappali fény</h3>
+            <p class="mode-desc">Általános klinikai értékelés: tónus, felszíni elváltozások, bőrkép.</p>
+            <span class="mode-highlight">Kiindulási állapot rögzítése.</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">MODE 02</span>
+            <h3 class="mode-title serif">Párhuzamosan polarizált</h3>
+            <p class="mode-desc">Textúra és mikrorelief: pórusok, finom vonalak, felszíni egyenetlenségek.</p>
+            <span class="mode-highlight">Bőrfelszín részletessége.</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">MODE 03</span>
+            <h3 class="mode-title serif">Keresztpolarizált</h3>
+            <p class="mode-desc">Csillogás kiszűrése: pigmentáció és érrendszeri eltérések láthatóbbá válnak.</p>
+            <span class="mode-highlight">Dermisz „ablak".</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">MODE 04</span>
+            <h3 class="mode-title serif">Valódi UV fény</h3>
+            <p class="mode-desc">Fluoreszcencia: napkárosodás, faggyútermelés, bizonyos baktériumjelek.</p>
+            <span class="mode-highlight">Rejtett problémák előrejelzése.</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">MODE 05</span>
+            <h3 class="mode-title serif">Szimulált Wood-fény</h3>
+            <p class="mode-desc">Lipid/olaj és hidratáltsági mintázatok: dehidratáció jellegzetes árnyalatai.</p>
+            <span class="mode-highlight">Hidratáltsági térkép.</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">MODE 06</span>
+            <h3 class="mode-title serif">Arcszín elemzés</h3>
+            <p class="mode-desc">Tónusegyenetlenségek és irritációs mintázatok összevetése: a kezelés fókusza tisztább.</p>
+            <span class="mode-highlight">Kezelési terv alapja.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIZSGÁLAT MENETE -->
+      <section id="observ-flow">
+        <span class="section-tag" style="color: var(--observ-blue);">Munkafolyamat</span>
+        <h2 class="section-title serif">Mi történik az Observ vizsgálaton?</h2>
+        <p style="color: var(--gray); max-width: 950px;">
+          20–30 perc alatt objektív képet kapsz a bőrödről, és egy olyan tervet, amiből tényleg tudsz építkezni (kezelések + otthoni rutin). Nem találgatunk.
+        </p>
+
+        <div class="mode-grid" style="margin-top: 22px;">
+          <div class="mode-card">
+            <span class="mode-num">STEP 01</span>
+            <h3 class="mode-title serif">Előkészítés</h3>
+            <p class="mode-desc">Rövid anamnézis: célok, érzékenység, eddigi rutin. Megbeszéljük, mit szeretnél elérni.</p>
+            <span class="mode-highlight">Fókusz kijelölése.</span>
+          </div>
+          <div class="mode-card">
+            <span class="mode-num">STEP 02</span>
+            <h3 class="mode-title serif">Képrögzítés</h3>
+            <p class="mode-desc">Standardizált pozíció + több megvilágítási mód. Így az eredmény összehasonlítható később is.</p>
+            <span class="mode-highlight">Mérhetőség = fejlődés.</span>
+          </div>
+          <div class="mode-card">
+            <span class="mode-num">STEP 03</span>
+            <h3 class="mode-title serif">Elemzés</h3>
+            <p class="mode-desc">Pigment, vörösség, textúra, hidratáltsági mintázatok: mi a valódi ok, mi a felszín?</p>
+            <span class="mode-highlight">Ok–okozat tisztázása.</span>
+          </div>
+          <div class="mode-card">
+            <span class="mode-num">STEP 04</span>
+            <h3 class="mode-title serif">Kezelési terv</h3>
+            <p class="mode-desc">Kezelések sorrendje + otthoni protokoll. Konkrét: mit, mikor, miért.</p>
+            <span class="mode-highlight">Kézbe vehető terv.</span>
+          </div>
+          <div class="mode-card">
+            <span class="mode-num">STEP 05</span>
+            <h3 class="mode-title serif">Kontroll</h3>
+            <p class="mode-desc">Ugyanabból a szögből, ugyanabban a módban: így látod, mi működik tényleg.</p>
+            <span class="mode-highlight">Objektív összehasonlítás.</span>
+          </div>
+          <div class="mode-card">
+            <span class="mode-num">BONUS</span>
+            <h3 class="mode-title serif">Nyitási akció</h3>
+            <p class="mode-desc">Ultima Mask vásárlás mellé ingyenes Observ bőrvizsgálat — limitált időpontokkal.</p>
+            <span class="mode-highlight">Kérd a Kapcsolat résznél.</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <a class="btn" style="background: var(--observ-blue); color: white;" href="#contact">Időpontot kérek</a>
+          <a class="btn btn-ghost" href="#contact" style="margin-left:10px;">Kérem az ingyenes akciót</a>
+        </div>
+      </section>
+
+      <!-- ELŐTTE / UTÁNA EREDMÉNYEK -->
+      <section id="before-after">
+        <span class="section-tag" style="color: var(--observ-blue);">Eredmények</span>
+        <h2 class="section-title serif">Valódi bőrkép változás — előtte / utána</h2>
+        <p style="color: var(--gray); max-width: 950px;">
+          Standardizált fényviszonyok mellett készült képek. A cél nem a „filter", hanem a textúra, tónus és vörösség objektív összehasonlíthatósága.
+        </p>
+
+        <div class="mode-grid" style="margin-top:30px;">
+          <!-- PÁR 1 -->
+          <div class="mode-card">
+            <h3 class="mode-title serif" style="margin-bottom:14px;">Eset 01</h3>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div>
+                <img src="images/before-1.jpg" alt="Előtte 1" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,0.08);" />
+                <div class="comparison-label">Előtte</div>
+              </div>
+              <div>
+                <img src="images/after-1.jpg" alt="Utána 1" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,0.08);" />
+                <div class="comparison-label">Utána</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PÁR 2 -->
+          <div class="mode-card">
+            <h3 class="mode-title serif" style="margin-bottom:14px;">Eset 02</h3>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div>
+                <img src="images/before-2.jpg" alt="Előtte 2" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,0.08);" />
+                <div class="comparison-label">Előtte</div>
+              </div>
+              <div>
+                <img src="images/after-2.jpg" alt="Utána 2" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,0.08);" />
+                <div class="comparison-label">Utána</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:26px;">
+          <a class="btn" style="background: var(--observ-blue); color: white;" href="#contact">Szeretnék ilyen elemzést</a>
+        </div>
+      </section>
+
+      <!-- ANALÍZIS -->
+      <section id="observ-tech">
+        <div class="analysis-display">
+          <div class="grey-tech-card">
+            <div class="media-cover" aria-label="Grey Technology – volumen és topográfia">
+              <img
+                src="https://images.unsplash.com/photo-1512290902416-09e8a9f81dc2?auto=format&fit=crop&q=80&w=1200"
+                alt="Grey Technology volumen elemzés"
+                width="1200"
+                height="825"
+                loading="lazy"
+                decoding="async"
+                onerror="imgFallback(this, 'Grey Technology – volumen és topográfia')"
+              />
+              <div class="media-fallback" aria-hidden="true">
+                <div>
+                  <strong>Grey Technology</strong>
+                  <div style="color: rgba(255,255,255,0.70);">Volumen és topográfia vizualizáció</div>
+                </div>
+              </div>
+            </div>
+            <span class="comparison-label">Grey Technology — volumen és topográfia</span>
+          </div>
+          <div>
+            <span class="feature-badge" style="background: var(--gold);">3D Vizualizáció</span>
+            <h2 class="section-title serif">Vörösség és Pigmentáció fókusz.</h2>
+            <p style="color: var(--gray); margin-bottom: 18px;">
+              A 520x modell segít elkülöníteni a mikrovaszkuláris jellegzetességeket és a pigmentációs mintázatokat, hogy a kezelés célzott és mérhető legyen.
+            </p>
+            <div class="stat-card" style="padding: 18px; border-left: 3px solid var(--observ-blue);">
+              <p style="font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.88);">
+                „Az arc egy elsötétített búra alá kerül, ahol a rendszer gyors egymásutánban több szögből készít felvételeket — így a változás idővel objektíven követhető."
+              </p>
+            </div>
+            <div style="margin-top: 18px;">
+              <a class="btn" style="background: var(--observ-blue); color: white;" href="#contact">Időpontot kérek</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FPS SECTION -->
+      <section aria-label="Konzisztens diagnosztika">
+        <div class="fps-section">
+          <div>
+            <h2 class="section-title serif">Konzisztens Diagnosztika</h2>
+            <p style="color: var(--gray); margin-bottom: 22px;">
+              A pozicionáló rendszer segít, hogy minden mérés hasonló körülmények között készüljön. Ez kulcs a kezelések hatékonyságának számszerűsítéséhez.
+            </p>
+            <div class="stats-grid" style="grid-template-columns: 1fr;">
+              <div class="stat-card" style="padding: 18px;">
+                <span style="color: var(--gold); font-weight: 900;">Sylton Connect</span>
+                <p style="font-size: 0.9rem; color: var(--gray); margin-top: 6px;">Integráció a felhőalapú elemzéshez és dokumentáláshoz.</p>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <img
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"
+              alt="Observ 520x munkafolyamat"
+              width="1000"
+              height="700"
+              loading="lazy"
+              decoding="async"
+              style="width: 100%; border-radius: 22px; border: 1px solid rgba(255,255,255,0.06);"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ═══ PARTNER OLDAL ═══ -->
+  <div id="partner-page" class="page-content" role="tabpanel" aria-labelledby="tab-partner">
+    <nav class="nav" id="mainNavPartner" aria-label="Partner navigáció">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="PARTNER kezdő">PARTNER</a>
+        <ul class="nav-links">
+          <li><a href="https://partner.theultimatebeauty.net" target="_blank" rel="noopener">Partner portál</a></li>
+          <li><a href="#partner-dashboard">Dashboard</a></li>
+          <li><a href="#contact">Kapcsolat</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="menu-btn" onclick="openDrawer('partner')" aria-label="Menü megnyitása">☰</button>
+          <a href="#contact" class="btn btn-gold nav-cta">Kapcsolat</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- HERO / LOGIN -->
+      <section class="hero" id="partner-login" aria-label="Partner belépés">
+        <div class="hero-bg-glow" aria-hidden="true"></div>
+        <div class="hero-content" style="max-width: 100%; text-align: center;">
+          <span class="hero-tag" data-reveal>Üzleti partnerek</span>
+          <h1 class="hero-title serif" data-reveal>Partner <span class="text-gradient">Belépés</span></h1>
+          <p class="hero-description" data-reveal style="margin: 0 auto 40px;">
+            Üdvözöljük a The Ultimate Beauty partner portálján. Kérjük, jelentkezzen be a hozzáféréshez.
+          </p>
+
+          <!-- Login Form -->
+          <div data-reveal style="max-width: 480px; margin: 0 auto;">
+            <div style="background: rgba(17,20,26,1); border: 1px solid rgba(255,255,255,0.10); padding: 40px; border-radius: 22px;">
+              <form id="partnerLoginForm" onsubmit="handlePartnerLogin(event)">
+                <div style="display: grid; gap: 18px;">
+                  <div style="display: grid; gap: 8px; text-align: left;">
+                    <label for="partner-email" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.72); font-weight: 800;">Email</label>
+                    <input 
+                      id="partner-email" 
+                      name="email" 
+                      type="email" 
+                      autocomplete="email" 
+                      required 
+                      placeholder="partner@email.com"
+                      style="width: 100%; padding: 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); color: var(--white); font-size: 1rem; outline: none;"
+                    />
+                  </div>
+                  <div style="display: grid; gap: 8px; text-align: left;">
+                    <label for="partner-password" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.72); font-weight: 800;">Jelszó</label>
+                    <input 
+                      id="partner-password" 
+                      name="password" 
+                      type="password" 
+                      autocomplete="current-password" 
+                      required 
+                      placeholder="••••••••"
+                      style="width: 100%; padding: 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); color: var(--white); font-size: 1rem; outline: none;"
+                    />
+                  </div>
+                  <button class="btn btn-gold" type="submit" style="width: 100%; margin-top: 10px;">Belépés</button>
+                  <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-top: 10px;">
+                    Ha nincs hozzáférésed, kérj meghívót az adminisztrátortól.
+                  </p>
+                  <div id="partnerAuthMsg" style="display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.86);"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD (hidden by default, shown after login) -->
+      <section id="partner-dashboard" style="display: none; padding: 100px 0;">
+        <span class="section-tag">Partner Dashboard</span>
+        <h2 class="section-title serif">Üdvözöljük a partner portálon!</h2>
+
+        <div class="mode-grid" style="margin-top: 30px;">
+          <div class="mode-card">
+            <span class="mode-num">STATISZTIKÁK</span>
+            <h3 class="mode-title serif">Havi Teljesítmény</h3>
+            <p class="mode-desc">Megtekintheti a havi értékesítési adatokat és jutalékokat.</p>
+            <div style="margin-top: 20px; display: grid; gap: 10px;">
+              <div style="background: rgba(255,255,255,0.04); padding: 14px; border-radius: 12px; display: flex; justify-content: space-between;">
+                <span style="color: var(--gray);">Értékesítések:</span>
+                <span style="color: var(--gold); font-weight: 900;">12 db</span>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); padding: 14px; border-radius: 12px; display: flex; justify-content: space-between;">
+                <span style="color: var(--gray);">Jutalék:</span>
+                <span style="color: var(--gold); font-weight: 900;">240 000 Ft</span>
+              </div>
+            </div>
+            <span class="mode-highlight">Folytatás: következő hónap</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">MARKETING</span>
+            <h3 class="mode-title serif">Marketing Anyagok</h3>
+            <p class="mode-desc">Letölthető katalógusok, képek és promóciós anyagok.</p>
+            <div style="margin-top: 20px; display: grid; gap: 10px;">
+              <a href="#" class="btn btn-ghost" style="width: 100%; text-decoration: none;">Termék katalógus (PDF)</a>
+              <a href="#" class="btn btn-ghost" style="width: 100%; text-decoration: none;">Promóciós képek (.zip)</a>
+              <a href="#" class="btn btn-ghost" style="width: 100%; text-decoration: none;">Ár listák (XLSX)</a>
+            </div>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">RENDELÉSEK</span>
+            <h3 class="mode-title serif">Rendelés leadása</h3>
+            <p class="mode-desc">Új megrendelések rögzítése és státusz követése.</p>
+            <div style="margin-top: 20px;">
+              <a href="#contact" class="btn btn-gold" style="width: 100%; text-decoration: none;">Új rendelés</a>
+            </div>
+            <span class="mode-highlight">Gyors feldolgozás: 24-48 óra</span>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">TÁMOGATÁS</span>
+            <h3 class="mode-title serif">Partner Támogatás</h3>
+            <p class="mode-desc">Technikai segítség és képzési anyagok elérése.</p>
+            <div style="margin-top: 20px; display: grid; gap: 10px;">
+              <a href="#contact" class="btn btn-ghost" style="width: 100%; text-decoration: none;">Kapcsolatfelvétel</a>
+              <a href="#" class="btn btn-ghost" style="width: 100%; text-decoration: none;">Képzési videók</a>
+            </div>
+          </div>
+
+          <div class="mode-card">
+            <span class="mode-num">FIÓK</span>
+            <h3 class="mode-title serif">Fiók kezelése</h3>
+            <p class="mode-desc">Profil szerkesztése és kijelentkezés.</p>
+            <div style="margin-top: 20px;">
+              <button class="btn btn-ghost" onclick="handlePartnerLogout()" style="width: 100%;">Kijelentkezés</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Sticky CTA (mobile) -->
+  <div class="sticky-cta" aria-label="Gyors műveletek">
+    <a class="btn btn-gold" href="#contact">Foglalás</a>
+    <button class="btn btn-ghost" onclick="openDrawer(getActiveTab())">Menü</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="container">
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo serif" style="font-size: 1.2rem; font-weight: 900;">The Ultimate Beauty</div>
+          <p style="color: var(--gray); margin-top: 10px; max-width: 520px;">Boutique esztétikai klinika Budapest szívében. Természetes szépség, tudományos alapokon.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Technológiák</h4>
+          <ul>
+            <li><a href="#" onclick="switchTab('mask')">Ultima LED Mask</a></li>
+            <li><a href="#" onclick="switchTab('observ')">Observ 520x</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Információ</h4>
+          <ul>
+            <li><a href="#faq">GYIK</a></li>
+            <li><a href="#contact">Kapcsolat</a></li>
+            <li><a href="#" onclick="switchTab('observ')">Bőrdiagnosztika</a></li>
+            <li><a href="https://partner.theultimatebeauty.net" target="_blank" rel="noopener">Partner belépés</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kapcsolat</h4>
+          <ul>
+            <li><a href="/cdn-cgi/l/email-protection#c4adaaa2ab84b0aca1b1a8b0ada9a5b0a1a6a1a5b1b0bdeaa7aba9"><span class="__cf_email__" data-cfemail="7e171018113e0a161b0b120a17131f0a1b1c1b1f0b0a07501d1113">[email&#160;protected]</span></a></li>
+            <li><a href="tel:+3617903017">+36 1 790 3017</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 The Ultimate Beauty. Minden jog fenntartva.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Supabase client (Auth + DB) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- JotForm (canvas preview-ben gyakran felesleges extra domain hívásokat okoz) -->
+  <script>
+    (function () {
+      const fallback = document.getElementById('jfFallback');
+      const iframe = document.getElementById('JotFormIFrame-260426493778065');
+      if (!fallback || !iframe) return;
+
+      const t = setTimeout(() => {
+        if (!document.documentElement.classList.contains('jf-loaded')) {
+          fallback.style.display = 'flex';
+        }
+      }, 1800);
+
+      iframe.addEventListener('load', () => {
+        clearTimeout(t);
+      });
+    })();
+  </script>
+
+  <script>
+    // Tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.page-content').forEach(page => page.classList.remove('active'));
+
+      const activeBtn = document.getElementById(`tab-${tabId}`);
+      const activePage = document.getElementById(`${tabId}-page`);
+
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-selected', 'true');
+      }
+      if (activePage) activePage.classList.add('active');
+
+      // Update drawer links
+      buildDrawerLinks(tabId);
+
+      // Reset scroll
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function getActiveTab() {
+      if (document.getElementById('mask-page').classList.contains('active')) return 'mask';
+      if (document.getElementById('observ-page').classList.contains('active')) return 'observ';
+      if (document.getElementById('partner-page').classList.contains('active')) return 'partner';
+      return 'mask';
+    }
+
+    // Nav scroll state (single listener)
+    function updateNavOnScroll() {
+      const maskNav = document.getElementById('mainNavMask');
+      const observNav = document.getElementById('mainNavObserv');
+      const partnerNav = document.getElementById('mainNavPartner');
+      const scrolled = window.scrollY > 100;
+      if (maskNav) maskNav.classList.toggle('scrolled', scrolled);
+      if (observNav) observNav.classList.toggle('scrolled', scrolled);
+      if (partnerNav) partnerNav.classList.toggle('scrolled', scrolled);
+    }
+    window.addEventListener('scroll', updateNavOnScroll);
+    updateNavOnScroll();
+
+    // Drawer
+    function openDrawer(context) {
+      const tab = context || getActiveTab();
+      buildDrawerLinks(tab);
+      document.body.classList.add('drawer-open');
+      document.getElementById('drawer').setAttribute('aria-hidden', 'false');
+    }
+
+    function closeDrawer() {
+      document.body.classList.remove('drawer-open');
+      document.getElementById('drawer').setAttribute('aria-hidden', 'true');
+    }
+
+    function buildDrawerLinks(tab) {
+      const drawerLinks = document.getElementById('drawerLinks');
+      if (!drawerLinks) return;
+      drawerLinks.innerHTML = '';
+
+      const links = tab === 'mask'
+        ? [
+            { href: '#about', label: 'A Maszk' },
+            { href: '#technology', label: 'Technológia' },
+            { href: '#how-to', label: 'Használat' },
+            { href: '#faq', label: 'GYIK' },
+            { href: '#contact', label: 'Kapcsolat / Foglalás' },
+          ]
+        : tab === 'observ'
+        ? [
+            { href: '#observ-intro', label: 'A Rendszer' },
+            { href: '#observ-modes', label: 'Fénymódok' },
+            { href: '#observ-tech', label: 'Analízis' },
+            { href: '#faq', label: 'GYIK' },
+            { href: '#contact', label: 'Kapcsolat / Foglalás' },
+          ]
+        : [
+            { href: '#partner-login', label: 'Belépés' },
+            { href: '#partner-dashboard', label: 'Dashboard' },
+            { href: '#contact', label: 'Kapcsolat' },
+          ];
+
+      links.forEach(l => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = l.href;
+        a.textContent = l.label;
+        a.addEventListener('click', () => closeDrawer());
+        li.appendChild(a);
+        drawerLinks.appendChild(li);
+      });
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // PARTNER AUTH (Supabase)
+    // Fix: a Canvas/preview néha kétszer futtatja a scriptet (document.write / újra-render),
+    // ezért NEM használunk top-level `const supabase = ...` változót.
+    // Ehelyett egy újrahasznosítható kliens példányt tárolunk a window-ban.
+    // ─────────────────────────────────────────────────────────────
+
+    // Ezeket cseréld ki:
+    // - URL: Settings → API → Project URL
+    // - Publishable: Settings → API Keys → Publishable key (sb_publishable_...)
+    var SUPABASE_URL = 'https://fqivvsvydjxbxxnstjiz.supabase.co';
+    var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Ew1cxuc4tKFHGIRwICGMWg_ue7DT_Vb';
+
+    function getSupabaseClient() {
+      // Ha már létrejött (újrafuttatás), használjuk újra
+      if (window.__tub_supabase_client) return window.__tub_supabase_client;
+
+      // Várjuk meg, hogy a lib betöltődjön
+      if (!window.supabase || !window.supabase.createClient) {
+        throw new Error('Supabase library not loaded.');
+      }
+
+      window.__tub_supabase_client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+      return window.__tub_supabase_client;
+    }
+
+    function setAuthMsg(text, isError) {
+      const el = document.getElementById('partnerAuthMsg');
+      if (!el) return;
+      el.style.display = text ? 'block' : 'none';
+      el.textContent = text || '';
+      el.style.borderColor = isError ? 'rgba(255, 77, 77, 0.45)' : 'rgba(255,255,255,0.10)';
+      el.style.background = isError ? 'rgba(255, 77, 77, 0.10)' : 'rgba(255,255,255,0.04)';
+    }
+
+    function showPartnerDashboard() {
+      const login = document.getElementById('partner-login');
+      const dash = document.getElementById('partner-dashboard');
+      if (login) login.style.display = 'none';
+      if (dash) dash.style.display = 'block';
+    }
+
+    function showPartnerLogin() {
+      const login = document.getElementById('partner-login');
+      const dash = document.getElementById('partner-dashboard');
+      if (login) login.style.display = 'flex';
+      if (dash) dash.style.display = 'none';
+      const form = document.getElementById('partnerLoginForm');
+      if (form) form.reset();
+    }
+
+    async function handlePartnerLogin(e) {
+      e.preventDefault();
+      setAuthMsg('', false);
+
+      const form = e.target;
+      const email = (form.email.value || '').trim();
+      const password = form.password.value || '';
+
+      if (!email || !password) {
+        setAuthMsg('Kérlek add meg az emailt és a jelszót.', true);
+        return;
+      }
+
+      let client;
+      try {
+        client = getSupabaseClient();
+      } catch (err) {
+        setAuthMsg('Technikai hiba: Supabase nem töltődött be. Próbáld újratölteni az oldalt.', true);
+        return;
+      }
+
+      const { error } = await client.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        setAuthMsg('Sikertelen belépés. Ellenőrizd az emailt/jelszót vagy kérj új meghívót.', true);
+        return;
+      }
+
+      setAuthMsg('Sikeres belépés.', false);
+      showPartnerDashboard();
+      setTimeout(() => {
+        const dash = document.getElementById('partner-dashboard');
+        if (dash) dash.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    async function handlePartnerLogout() {
+      try {
+        const client = getSupabaseClient();
+        await client.auth.signOut();
+      } catch (_) {
+        // ignore
+      }
+      setAuthMsg('', false);
+      showPartnerLogin();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    (async function initPartnerAuth() {
+      // Ha nincs bekötve kulcs, ne próbálkozzunk feleslegesen
+      if (!SUPABASE_PUBLISHABLE_KEY || SUPABASE_PUBLISHABLE_KEY === 'PASTE_YOUR_PUBLISHABLE_KEY_HERE') {
+        // Login marad, nincs session restore
+        showPartnerLogin();
+        return;
+      }
+
+      try {
+        const client = getSupabaseClient();
+        const { data } = await client.auth.getSession();
+        if (data && data.session) showPartnerDashboard();
+        else showPartnerLogin();
+
+        client.auth.onAuthStateChange((_event, session) => {
+          if (session) showPartnerDashboard();
+          else showPartnerLogin();
+        });
+      } catch (_) {
+        showPartnerLogin();
+      }
+    })();
+
+    // Reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'all 0.75s ease';
+      observer.observe(el);
+    });
+
+    function imgFallback(imgEl, label) {
+      try {
+        imgEl.style.display = 'none';
+        const wrap = imgEl.closest('.media-cover');
+        if (!wrap) return;
+
+        const fallback = wrap.querySelector('.media-fallback');
+        if (fallback) fallback.style.opacity = '1';
+
+        wrap.setAttribute('aria-label', label || 'Média');
+      } catch (e) {
+        // No-op
+      }
+    }
+
+    // Basic sanity checks (dev-only, safe to keep)
+    (function runSanityChecks() {
+      // 1) partnerAuthMsg exists
+      const msg = document.getElementById('partnerAuthMsg');
+      if (!msg) console.warn('[SanityCheck] partnerAuthMsg missing');
+
+      // 2) login form exists
+      const form = document.getElementById('partnerLoginForm');
+      if (!form) console.warn('[SanityCheck] partnerLoginForm missing');
+    })();
+  </script>
+</body>
+</html>
